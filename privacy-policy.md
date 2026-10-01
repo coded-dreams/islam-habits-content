@@ -6,7 +6,7 @@ permalink: /privacy-policy/
 
 # Privacy Policy
 
-Last updated: September 30, 2026
+Last updated: October 1, 2026
 
 Islam Habits is an Android app for prayer times, prayer focus tracking, duas,
 tasbih, dhikr, Qibla direction, the Qur'an, the 99 Names of Allah, and embedded
@@ -25,8 +25,8 @@ For privacy questions, write to **codeddreams.app@gmail.com**.
   on your device.
 - Some features contact other companies directly, and those companies see your
   IP address and device details: Google (ads, purchases, YouTube videos and
-  place-name lookup) and the Islamic Network (Qur'an recitation audio). Details
-  are below.
+  place-name lookup), the Islamic Network (Qur'an recitation audio) and GitHub
+  (the list of video links). Details are below.
 - Islam Habits does not sell personal data.
 
 ## What Stays On Your Device
@@ -60,6 +60,7 @@ IP address and basic device and app details, as with any internet connection.
 | Ad-free purchase | Google Play | Purchase and account details handled by Google Play; a random install ID |
 | YouTube videos | YouTube / Google | IP address, device details, video and playback information, cookies or similar data in the app's web view |
 | Qur'an recitation | Islamic Network CDN | The ayah, reciter and audio quality you play, plus IP address and device type |
+| Video links | GitHub Pages (GitHub) | IP address and device and app details, like any web request; nothing else is sent |
 | Place-name lookup | Android geocoding service (usually Google) | Your coordinates, once, when you set your location |
 
 ## Ads And Consent
@@ -103,6 +104,16 @@ Official links:
 Islam Habits does not remove, block, or obscure YouTube player controls,
 branding, ads, or links supplied by the embedded player.
 
+## Video Links
+
+The list of YouTube links the app shows is a small public file hosted on GitHub
+Pages (coded-dreams.github.io). So that a broken video can be replaced without an
+app update, the app downloads that file when it starts and, if it has been open for
+a while, again at most once an hour, and keeps the last copy on your device. The
+request carries no account, identifier or personal information. GitHub, which hosts
+the file, sees your IP address and device and app details like any web server, under
+its own privacy statement; the developer receives nothing from these requests.
+
 ## Qur'an Recitation Audio
 
 The Qur'an text is bundled with the app and is read offline. Recitation audio is
@@ -135,7 +146,7 @@ everything, including your saved location and search history, clear the app's
 storage in Android settings or uninstall the app. Uninstalling does not remove a
 cloud backup copy; delete that in your Google Account backup settings. Because the
 developer holds no copy of your data, there is nothing to request from the
-developer; data held by Google, YouTube or the Islamic Network is governed by their
+developer; data held by Google, YouTube, GitHub or the Islamic Network is governed by their
 own policies.
 
 ## Children
@@ -145,8 +156,8 @@ their personal information.
 
 ## Security
 
-Network communication with Google, YouTube, and the Islamic Network CDN uses
-HTTPS. Local app data is stored in Android app storage controlled by the
+Network communication with Google, YouTube, GitHub and the Islamic Network CDN
+uses HTTPS. Local app data is stored in Android app storage controlled by the
 operating system. The purchase record is signed with a key held in the Android
 Keystore.
 
