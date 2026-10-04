@@ -6,7 +6,7 @@ permalink: /privacy-policy/
 
 # Privacy Policy
 
-Last updated: October 1, 2026
+Last updated: October 4, 2026
 
 Islam Habits is an Android app for prayer times, prayer focus tracking, duas,
 tasbih, dhikr, Qibla direction, the Qur'an, the 99 Names of Allah, and embedded
@@ -56,7 +56,7 @@ IP address and basic device and app details, as with any internet connection.
 
 | Feature | Who receives data | What they receive |
 |---|---|---|
-| Ads | Google (AdMob) | Advertising ID, IP address, device and app information, ad interactions |
+| Ads | Google (AdMob) | Advertising ID, IP address, device and app information, ad interactions, crash and performance diagnostics |
 | Ad-free purchase | Google Play | Purchase and account details handled by Google Play; a random install ID |
 | YouTube videos | YouTube / Google | IP address, device details, video and playback information, cookies or similar data in the app's web view |
 | Qur'an recitation | Islamic Network CDN | The ayah, reciter and audio quality you play, plus IP address and device type |
@@ -67,7 +67,8 @@ IP address and basic device and app details, as with any internet connection.
 
 Islam Habits shows ads served by Google AdMob. Google may use your advertising
 ID, IP address, device and app information and how you interact with ads to show
-and measure ads, including personalised ads where you allow it, under the
+and measure ads, including personalised ads where you allow it, and may receive
+crash and performance diagnostics from the ads software, under the
 [Google Privacy Policy](https://policies.google.com/privacy). The app declares the
 `AD_ID` permission so that the advertising ID can be used.
 
