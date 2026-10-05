@@ -1,0 +1,49 @@
+---
+---
+@import "{{ site.theme }}";
+
+// The app's own two themes (ui/theme/Theme.kt): background #F1F1F1 / #2C2C2C, text #1E1E1E / #E1E1E1,
+// secondary text #646464 / #AAAAAA. Audiowide is served from this site, not from Google Fonts, so the
+// page makes no third-party request (the privacy policy promises none beyond GitHub Pages itself).
+@font-face {
+  font-family: "Audiowide";
+  src: url("{{ site.baseurl }}/assets/fonts/audiowide-regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+body {
+  background: #F1F1F1;
+  color: #1E1E1E;
+}
+
+h1, h2, h3, h4, h5, h6, strong, th { color: #1E1E1E; }
+p, li, td, blockquote, small, footer, footer p, footer a { color: #1E1E1E; }
+header p, header a, .site-description { color: #646464; }
+a { color: #006E00; }
+hr, table, th, td, blockquote { border-color: #C8C8C8; }
+code, pre { background: #E4E4E4; color: #1E1E1E; }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 18px;
+}
+.brand img { height: 72px; width: auto; }
+.brand-name {
+  font-family: "Audiowide", sans-serif;
+  font-size: 30px;
+  line-height: 1.1;
+  color: #1E1E1E;
+}
+
+@media (prefers-color-scheme: dark) {
+  body { background: #2C2C2C; color: #E1E1E1; }
+  h1, h2, h3, h4, h5, h6, strong, th { color: #E1E1E1; }
+  p, li, td, blockquote, small, footer, footer p, footer a { color: #E1E1E1; }
+  header p, header a, .site-description { color: #AAAAAA; }
+  a { color: #5CE05C; }
+  hr, table, th, td, blockquote { border-color: #4A4A4A; }
+  code, pre { background: #232323; color: #E1E1E1; }
+  .brand-name { color: #E1E1E1; }
+}

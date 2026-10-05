@@ -4,9 +4,14 @@ title: Privacy Policy
 permalink: /privacy-policy/
 ---
 
+<div class="brand">
+  <img src="{{ site.baseurl }}/assets/brand-logo.png" alt="Islam Habits logo">
+  <span class="brand-name">Islam Habits</span>
+</div>
+
 # Privacy Policy
 
-Last updated: October 4, 2026
+Last updated: October 5, 2026
 
 Islam Habits is an Android app for prayer times, prayer focus tracking, duas,
 tasbih, dhikr, Qibla direction, the Qur'an, the 99 Names of Allah, and embedded
@@ -115,6 +120,10 @@ request carries no account, identifier or personal information. GitHub, which ho
 the file, sees your IP address and device and app details like any web server, under
 its own privacy statement; the developer receives nothing from these requests.
 
+## Video Ownership
+
+The videos linked in this app are hosted on YouTube and belong to their creators and channels. Coded Dreams does not own, host or claim any right in them. The app is not affiliated with, endorsed by or sponsored by YouTube, Google or the creators of these videos. Each video plays in YouTube's own embedded player, with its YouTube branding, links and terms left in place, and can be opened on YouTube. The copyright notice on this page covers the app only, not these videos. If you own a video shown here and want its link removed from the app, write to codeddreams.app@gmail.com; you can also report content through YouTube.
+
 ## Qur'an Recitation Audio
 
 The Qur'an text is bundled with the app and is read offline. Recitation audio is
@@ -186,6 +195,8 @@ Privacy & Terms screen and in the notice files shipped with the app:
 - Adhan sound: "Beautiful adhan" by Adam-synagda, from Wikimedia Commons (CC0
   1.0).
 - Fonts: Audiowide and Scheherazade New (SIL Open Font License 1.1).
+- Videos: every video the app links to belongs to its creator or channel on
+  YouTube; Coded Dreams owns none of them (see Video Ownership above).
 
 ## Changes To This Policy
 
