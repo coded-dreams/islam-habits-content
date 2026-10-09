@@ -1,0 +1,52 @@
+# Monthly: brings magnetic-model.json up to NOAA's latest World Magnetic Model release - the
+# high-resolution WMMHR when available (the Qibla compass's declination). Commits only when the model changed and passed validation; otherwise
+# opens an issue and leaves the live file as it was. Every run also commits a heartbeat, so GitHub
+# never pauses the schedule for inactivity (it does that to public repos after 60 quiet days).
+name: Update magnetic model
+on:
+  schedule:
+    - cron: "17 3 1 * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: content-update
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Update from NOAA
+        id: update
+        run: python scripts/update_wmm.py | tee update.log
+      - name: Validate
+        run: python scripts/validate.py
+      - name: Commit
+        run: |
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > .last-checked/wmm
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add magnetic-model.json .last-checked/wmm
+          if git diff --cached --quiet magnetic-model.json; then msg="Magnetic model check: already current"; else msg="$(head -1 update.log)"; fi
+          git commit -m "$msg" || exit 0
+          git pull --rebase
+          git push
+      - name: Flag notes
+        if: success() && hashFiles('changes.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "Magnetic model update needs a look" --body-file changes.md
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Magnetic model update failed"
+          body="The monthly WMM update failed, so magnetic-model.json was left unchanged and the app keeps its current model. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          existing=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then gh issue comment "$existing" --body "$body"; else gh issue create --title "$title" --body "$body"; fi

@@ -11,7 +11,7 @@ permalink: /privacy-policy/
 
 # Privacy Policy
 
-Last updated: October 5, 2026
+Last updated: October 9, 2026
 
 Islam Habits is an Android app for prayer times, prayer focus tracking, duas,
 tasbih, dhikr, Qibla direction, the Qur'an, the 99 Names of Allah, and embedded
@@ -20,6 +20,12 @@ educational videos. It is published by Coded Dreams.
 ## Contact
 
 For privacy questions, write to **codeddreams.app@gmail.com**.
+
+If you send feedback by email, or through the feedback form offered in test versions of the app,
+we receive what you choose to send (such as your address and message, and the app version and device
+model if you include them). The app itself collects nothing for this; the email app or the form in
+your browser handles it, and the form is a Google service under the
+[Google Privacy Policy](https://policies.google.com/privacy).
 
 ## The Short Version
 
@@ -65,7 +71,7 @@ IP address and basic device and app details, as with any internet connection.
 | Ad-free purchase | Google Play | Purchase and account details handled by Google Play; a random install ID |
 | YouTube videos | YouTube / Google | IP address, device details, video and playback information, cookies or similar data in the app's web view |
 | Qur'an recitation | Islamic Network CDN | The ayah, reciter and audio quality you play, plus IP address and device type |
-| Video links | GitHub Pages (GitHub) | IP address and device and app details, like any web request; nothing else is sent |
+| Video links and calculation data | GitHub Pages (GitHub) | IP address and device and app details, like any web request; nothing else is sent |
 | Place-name lookup | Android geocoding service (usually Google) | Your coordinates, once, when you set your location |
 
 ## Ads And Consent
@@ -79,6 +85,10 @@ crash and performance diagnostics from the ads software, under the
 
 In the European Economic Area, the United Kingdom and Switzerland, the app asks for
 your consent through Google's User Messaging Platform before any ad is requested.
+If you decline, you still see ads - limited ads, which Google does not personalise from your
+consent choices - and every feature of the app works exactly the same. Where the law requires it,
+a "Privacy choices" tile appears in the More screen so you can reopen Google's form and change your
+choice at any time. People who have bought the ad-free plan are not asked at all.
 On any device you can reset your advertising ID or opt out of ad personalisation
 in the device's Google settings (Settings, then Google, then Ads).
 
@@ -110,15 +120,23 @@ Official links:
 Islam Habits does not remove, block, or obscure YouTube player controls,
 branding, ads, or links supplied by the embedded player.
 
-## Video Links
+## Video Links and Calculation Data
 
 The list of YouTube links the app shows is a small public file hosted on GitHub
 Pages (coded-dreams.github.io). So that a broken video can be replaced without an
-app update, the app downloads that file when it starts and, if it has been open for
-a while, again at most once an hour, and keeps the last copy on your device. The
-request carries no account, identifier or personal information. GitHub, which hosts
-the file, sees your IP address and device and app details like any web server, under
-its own privacy statement; the developer receives nothing from these requests.
+app update, the app checks that file once a day, the first time you open the app that
+day, and keeps the last copy on your device.
+
+Two more public files on the same site hold the data behind the app's calculations: the
+World Magnetic Model the Qibla compass uses to correct for magnetic north, and the
+calculation authorities' prayer-time parameters. They are kept current automatically from
+NOAA and the Aladhan methods catalogue, and the app checks them at the same time as the
+video list - once a day - and keeps the last copies on your device. Your location is never sent: the
+whole file is downloaded and every calculation happens on your device.
+
+These requests carry no account, identifier or personal information. GitHub, which
+hosts the files, sees your IP address and device and app details like any web server,
+under its own privacy statement; the developer receives nothing from these requests.
 
 ## Video Ownership
 

@@ -1,3 +1,7 @@
 theme: jekyll-theme-minimal
 title: Islam Habits
 description: Public pages for the Islam Habits Android app, by Coded Dreams.
+# Workflow tooling - not part of the published site.
+exclude:
+  - scripts
+  - .last-checked

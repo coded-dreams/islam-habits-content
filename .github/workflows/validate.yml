@@ -1,0 +1,21 @@
+# Every push and pull request: a calculation.json or magnetic-model.json that fails validation - whether edited by hand
+# or by a workflow - fails here before anyone relies on it. (The app re-validates too, and keeps
+# its previous data when a file fails.)
+name: Validate calculation data
+on:
+  push:
+    paths: ["calculation.json", "magnetic-model.json", "scripts/**"]
+  pull_request:
+    paths: ["calculation.json", "magnetic-model.json", "scripts/**"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/validate.py

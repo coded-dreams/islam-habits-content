@@ -1,0 +1,51 @@
+# Weekly: syncs calculation.json's prayer-method angles/intervals with the Aladhan methods
+# catalogue. Commits only valid changes; large ones also open an issue so they are seen. Any failure
+# opens an issue and leaves the live file as it was. Commits a heartbeat every run (see
+# update-wmm.yml).
+name: Update prayer methods
+on:
+  schedule:
+    - cron: "41 4 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: content-update
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Update from Aladhan
+        run: python scripts/update_methods.py | tee update.log
+      - name: Validate
+        run: python scripts/validate.py
+      - name: Commit
+        run: |
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > .last-checked/methods
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calculation.json .last-checked/methods
+          if git diff --cached --quiet calculation.json; then msg="Prayer methods check: already current"; else msg="Prayer methods synced from Aladhan"; fi
+          git commit -m "$msg" -m "$(cat update.log)" || exit 0
+          git pull --rebase
+          git push
+      - name: Flag notable changes
+        if: success() && hashFiles('changes.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "Prayer method parameters changed" --body-file changes.md
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Prayer method update failed"
+          body="The weekly method sync failed, so calculation.json was left unchanged and the app keeps its current parameters. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          existing=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then gh issue comment "$existing" --body "$body"; else gh issue create --title "$title" --body "$body"; fi

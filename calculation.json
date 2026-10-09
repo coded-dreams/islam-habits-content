@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "methods": {
+    "MUSLIM_WORLD_LEAGUE": {
+      "fajrAngle": 18.0,
+      "ishaAngle": 17.0,
+      "ishaInterval": 0
+    },
+    "NORTH_AMERICA": {
+      "fajrAngle": 15.0,
+      "ishaAngle": 15.0,
+      "ishaInterval": 0
+    },
+    "EGYPTIAN": {
+      "fajrAngle": 19.5,
+      "ishaAngle": 17.5,
+      "ishaInterval": 0
+    },
+    "UMM_AL_QURA": {
+      "fajrAngle": 18.5,
+      "ishaInterval": 90
+    },
+    "KARACHI": {
+      "fajrAngle": 18.0,
+      "ishaAngle": 18.0,
+      "ishaInterval": 0
+    },
+    "DUBAI": {
+      "fajrAngle": 18.2,
+      "ishaAngle": 18.2,
+      "ishaInterval": 0
+    },
+    "QATAR": {
+      "fajrAngle": 18.0,
+      "ishaInterval": 90
+    },
+    "KUWAIT": {
+      "fajrAngle": 18.0,
+      "ishaAngle": 17.5,
+      "ishaInterval": 0
+    },
+    "SINGAPORE": {
+      "fajrAngle": 20.0,
+      "ishaAngle": 18.0,
+      "ishaInterval": 0
+    },
+    "TURKEY": {
+      "fajrAngle": 18.0,
+      "ishaAngle": 17.0,
+      "ishaInterval": 0
+    },
+    "JAKIM": {
+      "fajrAngle": 20.0,
+      "ishaAngle": 18.0,
+      "ishaInterval": 0
+    },
+    "KEMENAG": {
+      "fajrAngle": 20.0,
+      "ishaAngle": 18.0,
+      "ishaInterval": 0
+    }
+  }
+}

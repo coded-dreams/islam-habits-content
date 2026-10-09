@@ -1,0 +1,31 @@
+# Weekly: checks every videos.json link still plays embedded. Never edits videos.json - it keeps
+# one open issue listing dead links up to date, and closes it once they are all fixed.
+name: Check video links
+on:
+  schedule:
+    - cron: "23 5 * * 4"
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check links
+        run: python scripts/check_videos.py
+      - name: Update issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Dead video links in videos.json"
+          existing=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')
+          if [ -f dead-videos.md ]; then
+            if [ -n "$existing" ]; then gh issue edit "$existing" --body-file dead-videos.md; else gh issue create --title "$title" --body-file dead-videos.md; fi
+          elif [ -n "$existing" ]; then
+            gh issue close "$existing" --comment "All videos.json links play again."
+          fi
