@@ -11,7 +11,7 @@ permalink: /privacy-policy/
 
 # Privacy Policy
 
-Last updated: October 9, 2026
+Last updated: October 12, 2026
 
 Islam Habits is an Android app for prayer times, prayer focus tracking, duas,
 tasbih, dhikr, Qibla direction, the Qur'an, the 99 Names of Allah, and embedded
@@ -35,8 +35,8 @@ your browser handles it, and the form is a Google service under the
 - Your prayer records, counts, progress, search history and saved location stay
   on your device.
 - Some features contact other companies directly, and those companies see your
-  IP address and device details: Google (ads, purchases, YouTube videos and
-  place-name lookup), the Islamic Network (Qur'an recitation audio) and GitHub
+  IP address and device details: Google (ads, purchases, YouTube videos,
+  location and place-name lookup), the Islamic Network (Qur'an recitation audio) and GitHub
   (the list of video links). Details are below.
 - Islam Habits does not sell personal data.
 
@@ -49,16 +49,38 @@ Islam Habits stores the following on your device only:
 - your Qur'an search history (the words you searched for);
 - your saved prayer location, and the prayer times calculated from it;
 - your theme, alert settings, dua reminders and tutorial progress;
+- the Qibla compass's calibration for this phone;
 - a record of the ad-free purchase, if you have made one (see Purchases).
 
 **Location.** Islam Habits asks for your location when you choose to set or
-update your prayer location, and takes a single position fix, precise or
-approximate depending on the permission you grant. It does not track your
-location in the background. Prayer times and the Qibla direction are calculated
-on the device from the saved position and are never requested from a server.
+update your prayer location, precise or approximate depending on the permission
+you grant. Each time, it looks up your position once: it uses a precise fix the
+phone took in the last two minutes if there is one, and otherwise, for up to 15
+seconds, takes the most precise fix the phone can give, stopping as soon as one is
+within about 20 metres; if none arrives in time, it uses the phone's most recent
+fix from the last 30 minutes. On
+devices with Google Play services the position comes from Google's fused location
+provider, which combines GPS, Wi-Fi and mobile network signals; how Google Play
+services handles location is governed by the Google Privacy Policy and your
+device's location settings. Without Google Play services, Android's own GPS and
+network location are used. The app does not track your location in the
+background. Prayer times and the Qibla direction are calculated on the device
+from the saved position and are never requested from a server.
+
 The coordinates are sent once to Android's geocoding service, which on most
-devices is provided by Google, to look up a place name to display. If that lookup
-fails, the saved location is shown as coordinates instead.
+devices is provided by Google, to look up a place name to display. If there is no
+internet connection, or that lookup fails, the saved location is shown as
+coordinates, the app reads the country of the mobile network your phone is
+connected to (on the device, without any extra permission, and never sent
+anywhere) to choose the usual prayer-time method for that country, and it looks
+up the place name later, once you are online.
+
+**Qibla compass.** While the Qibla screen is open, the app reads the phone's
+magnetic field, gyroscope and gravity sensors to point the compass. These
+readings are used on the device only and are not stored, except for the
+calibration the compass learns for this phone, which is kept on the device and
+excluded from backup and device-to-device transfer, because it belongs to this
+physical phone.
 
 ## What Leaves Your Device, And Where It Goes
 
@@ -164,7 +186,8 @@ If Android backup is enabled for your device, your records, settings, saved
 location and search history are copied to your own Google account so that a new
 device can restore them. That copy is held under your Google account, not by the
 developer, and can be removed in your Google Account backup settings. The ad-free
-purchase record is excluded from backup and from device-to-device transfer.
+purchase record and the Qibla compass's calibration are excluded from backup and
+from device-to-device transfer.
 
 ## Data Retention And Deleting Your Data
 
