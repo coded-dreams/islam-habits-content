@@ -970,6 +970,23 @@
           "kind": "short"
         }
       ]
+    },
+    "dua.dua-decision-making": {
+      "screen": "Dua: Dua for Decision Making",
+      "videos": [
+        {
+          "id": "GidpLQWYZ9o",
+          "kind": "short"
+        },
+        {
+          "id": "6DNbq-U2bD0",
+          "kind": "short"
+        },
+        {
+          "id": "3W8pyXglxrU",
+          "kind": "short"
+        }
+      ]
     }
   }
 }
